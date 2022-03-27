@@ -1,6 +1,6 @@
-from email.i_email_address import IEmailAddress
-
 from dataclasses import dataclass, field
+
+from email_server.i_email_address import IEmailAddress
 
 @dataclass
 class User:

@@ -1,7 +1,7 @@
-from email.i_email_address import IEmailAddress
-
-from typing import List
 from dataclasses import dataclass, field
+from typing import List
+
+from email_server.i_email_address import IEmailAddress
 
 @dataclass
 class EmailServer:
@@ -15,7 +15,7 @@ class EmailServer:
     def genrate_email_address(self, username: str, email_type: IEmailAddress) -> IEmailAddress:
         """Genrates an Email and adds to the list of email_addresses and returns the email adress that was created"""
         email_address = email_type(mail_server=self.domain_name, domain=self.top_level_domain, username=username)
-        self._email_addresses[email_address._display_name] = (email_address)
+        self._email_addresses[email_address.username] = (email_address)
         return email_address
 
     @property
